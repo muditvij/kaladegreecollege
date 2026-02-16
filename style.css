@@ -266,28 +266,39 @@
         .director-image {
             flex: 1;
             position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .director-image::before {
             content: '';
             position: absolute;
-            top: -15px;
-            left: -15px;
-            width: 100%;
-            height: 100%;
-            border: 5px solid var(--secondary);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 320px;
+            height: 320px;
+            border: 2px dashed var(--secondary);
+            border-radius: 50%;
             z-index: 0;
-            border-radius: 10px;
+            animation: spin 20s linear infinite;
         }
 
         .director-image img {
-            width: 100%;
-            border-radius: 10px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 8px solid var(--white);
+            object-fit: cover;
             position: relative;
             z-index: 1;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            max-height: 400px;
-            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15), 0 0 0 10px var(--primary); 
+        }
+
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
         }
 
         .director-content {
